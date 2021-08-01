@@ -1,23 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react';
+import { Navbar } from './Components/index'
+import { Home, SearchRes } from './Pages/index'
+import { Route, Routes } from 'react-router-dom';
 
 function App() {
+
+  const [searchQuery, setSearchQuery] = useState("");
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {/* <SearchRes searchQuery={searchQuery} /> */}
+
+      <Navbar setSearchQuery={setSearchQuery} />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/search/:query" element={<SearchRes searchQuery={searchQuery} />} />
+      </Routes>
     </div>
   );
 }

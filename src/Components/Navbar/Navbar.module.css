@@ -1,0 +1,99 @@
+.header {
+  background-color: white;
+  position: sticky;
+  top: 0px;
+  z-index: 23;
+  width: 100%;
+  border-bottom: 1px solid rgb(247, 247, 247);
+  /* border-bottom: 1px solid black; */
+}
+
+#navbar {
+  /* display: flex;
+  flex-direction: column; */
+}
+
+.navbar__toggleLabel {
+  display: flex;
+  position: relative;
+  padding: 1rem;
+  justify-content: center;
+  height: 105px;
+  align-items: center;
+  flex-direction: column;
+}
+
+.navbar__logo {
+  display: flex;
+  align-items: center;
+  margin: 0.5rem;
+}
+
+.navbar__logoText {
+  margin-right: -7px;
+  color: #5b4dd4;
+  /* color: #3dc3f5; */
+  font-size: 1.6rem;
+  font-weight: bold;
+  letter-spacing: -1px;
+}
+
+/* Search box */
+.navbar__searchBox {
+  /* display: none; */
+  /* position: absolute;
+  right: 1rem;
+  padding-right: 2.5rem; */
+  position: relative;
+  margin: 0.5rem;
+  width: 100%;
+}
+
+.navbar__inputBox {
+  width: 50%;
+  height: 2rem;
+  border-color: rgba(83, 85, 86, 0.25);
+  border-radius: 42px;
+  border-style: solid;
+  border-width: 1px;
+  box-shadow: transparent 0px 0px 0px 0px inset;
+  color: rgb(0, 20, 30);
+  font-size: 16px;
+  max-height: 28px;
+  margin: 0px;
+  outline: none;
+  padding: 8px 32px 8px 12px;
+  /* width: auto; */
+  line-height: 14.5714px;
+  justify-content: center;
+}
+
+.navbar__searchBoxSuggestions {
+  position: absolute;
+  width: 47%;
+  margin: 0 auto;
+  top: 44px;
+  left: 0;
+  right: 0;
+  background-color: white;
+  /* border: 1px solid black; */
+  text-align: left;
+  /* padding: 1rem; */
+  border-color: rgba(83, 85, 86, 0.25);
+  /* border-radius: 42px; */
+  border-style: solid;
+  border-width: 1px;
+  box-shadow: transparent 0px 0px 0px 0px inset;
+  border-top: none;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.navbar__searchSuggestionItem {
+  cursor: pointer;
+  padding: 0.6rem;
+}
+
+.navbar__searchSuggestionItem:hover {
+  background-color: whitesmoke;
+}
