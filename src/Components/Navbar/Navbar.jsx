@@ -3,7 +3,6 @@ import { useRef } from 'react';
 import styles from './Navbar.module.css';
 import { useDataContext } from '../../Context/DataContext';
 // import { Hamburger, Tv } from '../../Assets/index';
-import { Magnify } from '../../Assets/svg/index.js'
 // import { Link, useNavigate } from 'react-router-dom';
 import { useNavigate } from 'react-router'
 
@@ -173,7 +172,6 @@ export const Navbar = ({ setSearchQuery }) => {
                             autocomplete="off"
                             className={styles.navbar__form}
                         >
-                        <div className={styles.navbar__inputBoxContainer}>
                             <input
                                 type="text"
                                 placeholder="Search..."
@@ -184,8 +182,6 @@ export const Navbar = ({ setSearchQuery }) => {
                                 ref={inputRef}
                                 onKeyDown={handleSearcherInputKeyDown}
                             />
-                            <Magnify className={styles.navbar__inputLogo} onClick={handleSearchSubmit}/>
-                            </div>
                         </form>
                         {
                             (

@@ -4,9 +4,13 @@ import useImageSearch from '../../Hooks/useImageSearch';
 import LoadingGif from '../../Assets/gif/loading.gif'
 import { useDataContext } from '../../Context/DataContext';
 import { useParams } from 'react-router-dom';
+import { ImageModal } from '../../Components/index';
+
+
 export const SearchRes = () => {
     const { prevSearchQueries } = useDataContext()
     const [pageNumber, setPageNumber] = useState(1)
+    const [openImage, setOpenImage] = useState({ openImage: false, url: "" })
     const { query } = useParams()
     console.log("query", query)
 
@@ -50,6 +54,7 @@ export const SearchRes = () => {
                                             alt="flicr images"
                                             className={styles.searchRes__image}
                                             ref={lastBookElementRef}
+                                            onClick={() => setOpenImage({ openImage: true, url: `https://live.staticflickr.com/${image.server}/${image.id}_${image.secret}_w.jpg` })}
                                         />
                                     </div>
                                 )
@@ -60,6 +65,7 @@ export const SearchRes = () => {
                                             src={`https://live.staticflickr.com/${image.server}/${image.id}_${image.secret}_w.jpg`}
                                             alt="flicr images"
                                             className={styles.searchRes__image}
+                                            onClick={() => setOpenImage({ openImage: true, url: `https://live.staticflickr.com/${image.server}/${image.id}_${image.secret}_w.jpg` })}
                                         />
                                     </div>
                                 );
@@ -68,6 +74,9 @@ export const SearchRes = () => {
                     <div>{loading && <img src={LoadingGif} alt="loading" />}</div>
                     <div>{error && 'Error'}</div>
                 </div>
+                {openImage.openImage
+                    && openImage.url !== ""
+                    && <ImageModal imgSrc={openImage.url} setOpenImage={setOpenImage}/>}
             </div>
         </>
     )
