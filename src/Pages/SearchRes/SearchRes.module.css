@@ -17,3 +17,9 @@
   max-width: 100%;
   height: auto;
 }
+
+.searchRes__photoContainer:nth-child(1),
+.searchRes__photoContainer:nth-child(2),
+.searchRes__photoContainer:nth-child(3) {
+  align-self: flex-start;
+}
