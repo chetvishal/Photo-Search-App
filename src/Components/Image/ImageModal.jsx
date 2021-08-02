@@ -9,7 +9,7 @@ export const ImageModal = ({ imgSrc, setOpenImage }) => {
                 <img
                     src={imgSrc}
                     alt="flicr images"
-                    className={styles.home__image}
+                    className={styles.imageModal__image}
                 // ref={lastBookElementRef}
                 />
             </div>

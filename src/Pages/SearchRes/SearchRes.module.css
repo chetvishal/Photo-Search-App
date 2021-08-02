@@ -3,7 +3,9 @@
   border: 1px solid black; */
 
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  /* grid-template-columns: repeat(auto-fill, minmax(400px, 1fr)); */
+  
+  grid-template-columns: repeat(auto-fill,minmax(280px,400px));
   grid-gap: 5px;
   justify-content: center;
   align-items: flex-end;
@@ -12,4 +14,6 @@
 .searchRes__image {
   /* border: 1px solid black; */
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  max-width: 100%;
+  height: auto;
 }
