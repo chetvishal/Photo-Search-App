@@ -173,7 +173,7 @@ export const Navbar = ({ setSearchQuery }) => {
                             autocomplete="off"
                             className={styles.navbar__form}
                         >
-                        <div className="navbar__inputBoxContainer">
+                        <div className={styles.navbar__inputBoxContainer}>
                             <input
                                 type="text"
                                 placeholder="Search..."
