@@ -3,6 +3,7 @@ import { useRef } from 'react';
 import styles from './Navbar.module.css';
 import { useDataContext } from '../../Context/DataContext';
 // import { Hamburger, Tv } from '../../Assets/index';
+import { Magnify } from '../../Assets/svg/index.js'
 // import { Link, useNavigate } from 'react-router-dom';
 import { useNavigate } from 'react-router'
 
@@ -92,7 +93,7 @@ export const Navbar = ({ setSearchQuery }) => {
         setSearchTxt(() => e.target.value)
     }
 
-    
+
 
     // handel the key down event of the search input
     function handleSearcherInputKeyDown(Event) {
@@ -126,12 +127,12 @@ export const Navbar = ({ setSearchQuery }) => {
                     setSelectedIndex(-1)
                 }
                 else if (searchTxt !== "") {
-                    if(!state.prevSearchQueries.find(query => query === searchTxt) ) {
+                    if (!state.prevSearchQueries.find(query => query === searchTxt)) {
                         setLocalStorage(searchTxt)
                         dispatch({ type: 'NEW_SEARCH_QUERY', payload: searchTxt })
                     }
                     navigate(`/search/${searchTxt}`)
-                    
+
                     setDisplaySuggestions(false)
                 }
             }
@@ -170,7 +171,9 @@ export const Navbar = ({ setSearchQuery }) => {
                         <form
                             onSubmit={handleSearchSubmit}
                             autocomplete="off"
+                            className={styles.navbar__form}
                         >
+                        <div className="navbar__inputBoxContainer">
                             <input
                                 type="text"
                                 placeholder="Search..."
@@ -181,6 +184,8 @@ export const Navbar = ({ setSearchQuery }) => {
                                 ref={inputRef}
                                 onKeyDown={handleSearcherInputKeyDown}
                             />
+                            <Magnify className={styles.navbar__inputLogo} onClick={handleSearchSubmit}/>
+                            </div>
                         </form>
                         {
                             (
@@ -189,7 +194,7 @@ export const Navbar = ({ setSearchQuery }) => {
                                     ref={itemListRef}
                                 >
                                     {suggestions}
-                                    {suggestions !== null && <button onClick={removeLocalStorage}>clear</button>}
+                                    {suggestions !== null && <button onClick={removeLocalStorage} className={styles.navbar__clearBtn}>clear</button>}
                                 </div>
                             )
                         }

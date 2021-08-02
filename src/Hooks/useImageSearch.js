@@ -29,7 +29,7 @@ export default function useImageSearch(query, pageNumber) {
             axios.get('https://www.flickr.com/services/rest', {
                 params: {
                     method: 'flickr.photos.search',
-                    api_key: '0f6e80f2d8ed3f6f7cab86b11c60fb7d',
+                    api_key: '173ed8294f3e6ad8779bf8ce0884aded',
                     text: query,
                     safe_search: 1,
                     per_page: 50,

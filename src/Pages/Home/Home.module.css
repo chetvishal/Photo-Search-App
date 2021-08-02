@@ -1,10 +1,38 @@
-
-
 .home__photoList {
-    padding: 2rem;
-    border: 1px solid black;
+  /* padding: 1rem; */
+  /* border: 1px solid black; */
+  /* display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr)); */
+
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  grid-gap: 5px;
+  justify-content: center;
+  align-items: flex-end;
+
+  /* column-width: 400px; */
+  /* column-gap: 50px; */
+  /* width: 90%; */
+  /* max-width: 1100px; */
+  /* margin: 50px 50px; */
 }
 
 .home__image {
-    border: 1px solid black;
+  /* border: 1px solid black; */
+}
+
+.home__photoContainer {
+    margin: 0.5rem 0;
+}
+
+.home__photoContainer:nth-child(1),
+.home__photoContainer:nth-child(2),
+.home__photoContainer:nth-child(3) {
+  align-self: flex-start;
+}
+
+.home__image {
+  /* align-self: flex-end; */
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  /* height: 100%; */
 }

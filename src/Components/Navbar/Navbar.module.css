@@ -21,12 +21,14 @@
   height: 105px;
   align-items: center;
   flex-direction: column;
+  /* width: 100%; */
 }
 
 .navbar__logo {
   display: flex;
   align-items: center;
   margin: 0.5rem;
+  cursor: pointer;
 }
 
 .navbar__logoText {
@@ -81,12 +83,22 @@
   /* padding: 1rem; */
   border-color: rgba(83, 85, 86, 0.25);
   /* border-radius: 42px; */
-  border-style: solid;
+  /* border-style: solid; */
   border-width: 1px;
   box-shadow: transparent 0px 0px 0px 0px inset;
   border-top: none;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
+}
+.navbar__form {
+  /* border-color: rgba(83, 85, 86, 0.25);border-color: rgba(83, 85, 86, 0.25);
+  border-radius: 42px;
+  border-style: solid;
+  border-width: 1px;
+
+  border-color: rgba(83, 85, 86, 0.25);
+  /* border-radius: 42px; */
+  /* border-style: solid; */
 }
 
 .navbar__searchSuggestionItem {
@@ -96,4 +108,25 @@
 
 .navbar__searchSuggestionItem:hover {
   background-color: whitesmoke;
+}
+
+.navbar__inputBoxContainer {
+  display: inline;
+  position: relative;
+}
+
+.navbar__inputLogo {
+  right: 10px;
+  position: absolute;
+  top: 2px;
+  cursor: pointer;
+}
+
+.navbar__clearBtn {
+  border: none;
+  background-color: beige;
+  padding: 0.4rem;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  margin-bottom: 0.5rem;
 }

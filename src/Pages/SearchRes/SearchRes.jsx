@@ -1,19 +1,15 @@
-import { useState, useEffect, useRef, useCallback } from 'react';
-import axios from 'axios';
+import { useState, useRef, useCallback } from 'react';
 import styles from './SearchRes.module.css';
-import useBooksHook from '../../Hooks/useBooksHook';
 import useImageSearch from '../../Hooks/useImageSearch';
 import LoadingGif from '../../Assets/gif/loading.gif'
 import { useDataContext } from '../../Context/DataContext';
 import { useParams } from 'react-router-dom';
-export const SearchRes = ({ searchQuery }) => {
-    // const [images, setData] = useState([]);
-    // const [query, setQuery] = useState('');
+export const SearchRes = () => {
     const { prevSearchQueries } = useDataContext()
     const [pageNumber, setPageNumber] = useState(1)
     const { query } = useParams()
     console.log("query", query)
-    
+
     const {
         images,
         hasMore,
@@ -40,27 +36,32 @@ export const SearchRes = ({ searchQuery }) => {
 
     return (
         <>
-            <div className="searchRes">
+            <div className={styles.searchRes}>
                 <h1>Search results for {query}</h1>
                 <div className={styles.searchRes__photoList}>
                     {
                         images.map((image, index) => {
                             if (images.length === index + 1)
                                 return (
-                                    <img
-                                        src={`https://live.staticflickr.com/${image.server}/${image.id}_${image.secret}_w.jpg`}
-                                        alt="flicr images"
-                                        className={styles.searchRes__image}
-                                        ref={lastBookElementRef}
-                                    />
+
+                                    <div className={styles.searchRes__photoContainer}>
+                                        <img
+                                            src={`https://live.staticflickr.com/${image.server}/${image.id}_${image.secret}_w.jpg`}
+                                            alt="flicr images"
+                                            className={styles.searchRes__image}
+                                            ref={lastBookElementRef}
+                                        />
+                                    </div>
                                 )
                             else
                                 return (
-                                    <img
-                                        src={`https://live.staticflickr.com/${image.server}/${image.id}_${image.secret}_w.jpg`}
-                                        alt="flicr images"
-                                        className={styles.searchRes__image}
-                                    />
+                                    <div className={styles.searchRes__photoContainer}>
+                                        <img
+                                            src={`https://live.staticflickr.com/${image.server}/${image.id}_${image.secret}_w.jpg`}
+                                            alt="flicr images"
+                                            className={styles.searchRes__image}
+                                        />
+                                    </div>
                                 );
                         })
                     }

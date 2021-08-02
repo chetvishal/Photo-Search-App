@@ -1,14 +1,12 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
-import axios from 'axios';
 import styles from './Home.module.css';
-import useBooksHook from '../../Hooks/useBooksHook';
+import { ImageModal } from '../../Components/index';
 import useImageFetch from '../../Hooks/useImageFetch';
 import LoadingGif from '../../Assets/gif/loading.gif'
 
 export const Home = () => {
-    // const [images, setData] = useState([]);
-    const [query, setQuery] = useState('');
     const [pageNumber, setPageNumber] = useState(1)
+    const [openImage, setOpenImage] = useState({ openImage: false, url: "" })
     const {
         images,
         hasMore,
@@ -43,13 +41,6 @@ export const Home = () => {
     // }, []);
 
 
-
-    // const handleSearch = e => {
-    //     setQuery(e.target.value)
-    //     setPageNumber(1)
-    // }
-
-
     return (
         <>
             <div className={styles.home}>
@@ -58,50 +49,38 @@ export const Home = () => {
                         images.map((image, index) => {
                             if (images.length === index + 1)
                                 return (
-                                    <img
-                                        src={`https://live.staticflickr.com/${image.server}/${image.id}_${image.secret}_w.jpg`}
-                                        alt="flicr images"
-                                        className={styles.home__image}
-                                        ref={lastBookElementRef}
-                                    />
+                                    <div className={styles.home__photoContainer}>
+                                        <img
+                                            src={`https://live.staticflickr.com/${image.server}/${image.id}_${image.secret}_w.jpg`}
+                                            alt="flicr images"
+                                            className={styles.home__image}
+                                            ref={lastBookElementRef}
+                                            onClick={() => setOpenImage({ openImage: true, url: `https://live.staticflickr.com/${image.server}/${image.id}_${image.secret}_w.jpg` })}
+                                        />
+                                    </div>
                                 )
                             else
                                 return (
-                                    <img
-                                        src={`https://live.staticflickr.com/${image.server}/${image.id}_${image.secret}_w.jpg`}
-                                        alt="flicr images"
-                                        className={styles.home__image}
-                                    />
+                                    <div className={styles.home__photoContainer}>
+                                        <img
+                                            src={`https://live.staticflickr.com/${image.server}/${image.id}_${image.secret}_w.jpg`}
+                                            alt="flicr images"
+                                            className={styles.home__image}
+                                            onClick={() => setOpenImage({ openImage: true, url: `https://live.staticflickr.com/${image.server}/${image.id}_${image.secret}_w.jpg` })}
+                                        
+
+                                        />
+                                    </div>
                                 );
                         })
                     }
                     <div>{loading && <img src={LoadingGif} alt="loading" />}</div>
                     <div>{error && 'Error'}</div>
                 </div>
+                {openImage.openImage
+                    && openImage.url !== ""
+                    && <ImageModal imgSrc={openImage.url} setOpenImage={setOpenImage}/>}
             </div>
-            {/* <div>
-                <input
-                    type="text"
-                    onChange={handleSearch}
-                    value={query}
-                />
-                {
-                    books.map((book, index) => {
-                        if (books.length === index + 1) {
-                            return <div
-                                key={book}
-                                ref={lastBookElementRef}
-                            >{book}</div>
-                        }
-                        else
-                            return <div
-                                key={book}
-                            >{book}</div>
-                    })
-                }
-                <div>{loading && 'Loading...'}</div>
-                <div>{error && 'Error'}</div>
-            </div> */}
         </>
     )
 }
